@@ -10,13 +10,13 @@ export const HouseWindow = ({ free, price, days }) => {
 	const ActiveTab = houseWindowTabList[activeTab];
 
 	const keyDownHandler = event => {
-		switch (event.key) {
-			case "e":
+		switch (event.code) {
+			case "KeyE":
 				if (activeTab < houseWindowTabList.length - 1) {
 					setActiveTab(prevState => prevState + 1);
 				}
 				break;
-			case "q":
+			case "KeyQ":
 				if (activeTab > 0) {
 					setActiveTab(prevState => prevState - 1);
 				}
@@ -32,7 +32,7 @@ export const HouseWindow = ({ free, price, days }) => {
 		return () => {
 			document.removeEventListener("keydown", keyDownHandler);
 		};
-	}, [activeTab]);
+	});
 
 	return (
 		<StyledContainer>
